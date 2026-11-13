@@ -272,11 +272,11 @@ else if(c.y==='e'){x.globalAlpha=al;gl(180,300,230,'3,5,16',.6);x.shadowBlur=10;
 x.restore()}
 
 /* ================= scene builder ================= */
-function dur(y,s){var w=wc(s);return y==='n'?1.6+.44*w:y==='q'?1.7+.4*w:y==='T'?3.8:y==='e'?4+.55*w:3}
+function dur(y,s){var w=wc(s);return y==='n'?1.2+.34*w:y==='q'?1.5+.35*w:y==='T'?3.8:y==='e'?3.6+.45*w:3}
 var SCN=[];
-function SC(spec,draw,ty){var s={B:{},cap:[],draw:draw,ty:ty};var tt=.45;spec.forEach(function(q){var k=q[0],y=q[1],v=q[2],o=(y==='nv'?q[4]:q[3])||{},d,m=0;tt+=o.pre||0;
-if(y==='h')d=v;else if(y==='nv'){var nd=1.5+.44*wc(v);d=nd+3.2+.31*wc(q[3]);m=tt+nd}else d=o.d||dur(y,v);
-s.B[k]=[tt,tt+d];if(y!=='h')s.cap.push({y:y,s:tt,e:tt+d,t:v,v:y==='nv'?q[3]:null,m:m,o:o});tt+=d+(o.gap!=null?o.gap:.2)});s.L=tt+.35;SCN.push(s);return s}
+function SC(spec,draw,ty){var s={B:{},cap:[],draw:draw,ty:ty};var tt=.35;spec.forEach(function(q){var k=q[0],y=q[1],v=q[2],o=(y==='nv'?q[4]:q[3])||{},d,m=0;tt+=o.pre||0;
+if(y==='h')d=v;else if(y==='nv'){var nd=1.2+.34*wc(v);d=nd+2.5+.25*wc(q[3]);m=tt+nd}else d=o.d||dur(y,v);
+s.B[k]=[tt,tt+d];if(y!=='h')s.cap.push({y:y,s:tt,e:tt+d,t:v,v:y==='nv'?q[3]:null,m:m,o:o});tt+=d+(o.gap!=null?o.gap:.1)});s.L=tt+.3;SCN.push(s);return s}
 function A(k,f,d){return sg(b(k)+(d||0),b(k)+(d||0)+(f||.8))}
 
 /* ---------- shared bits ---------- */
@@ -294,12 +294,12 @@ function plate(s2,px,py,sz,col,mw){x.font='700 '+sz+'px '+FV;var w=Math.min(x.me
 function arrowIcon(px,py,r,a){if(a<=0)return;x.save();x.globalAlpha*=a;gl(px,py,r*2.4,'255,214,130',.45);ci(px,py,r,'#3a2a10');x.strokeStyle='#f2c94c';x.lineWidth=2;x.beginPath();x.arc(px,py,r,0,7);x.stroke();x.save();x.translate(px,py);x.rotate(-.7);ln(-r*.7,0,r*.6,0,'#ffe9a8',2.2);x.fillStyle='#ffe9a8';x.beginPath();x.moveTo(r*.8,0);x.lineTo(r*.45,-4);x.lineTo(r*.45,4);x.fill();ln(-r*.7,0,-r*.9,-4,'#ffe9a8',1.5);ln(-r*.7,0,-r*.9,4,'#ffe9a8',1.5);x.restore();x.restore()}
 
 /* ---------- 0: hook ---------- */
-SC([['h0','h',.4],['a','q','اگر شما فردوسی بودید…',{c:1}],['b','q','بزرگ‌ترین پهلوانِ ایران را|چگونه می‌کشتید؟',{c:1}],['c','h',4.8],['d','h',1.4],['e','n','اما روایت، سومی را برگزید:|^کم‌شکوه‌ترینِ^ پایان را']],function(){
+SC([['h0','h',0.7],['a','q','اگر شما فردوسی بودید…',{c:1}],['b','q','بزرگ‌ترین پهلوانِ ایران را|چگونه می‌کشتید؟',{c:1}],['c','h',4.0],['d','h',0.7],['e','n','اما روایت، سومی را برگزید:|^کم‌شکوه‌ترینِ^ پایان را']],function(){
 sky(['#02040c','#0a1530','#18264c']);stars(1);book(180,540,1-sg(b('c')-.4,b('c')+.5));var c0=b('c'),Dd=b('d');
 for(var i=0;i<3;i++){var a=sg(c0+.3+i*1.4,c0+.9+i*1.4);card(180,300+i*92,a,i<2?1-.72*sg(Dd,Dd+.9):1,i===2?sg(Dd,Dd+.9):0,i)}},262);
 
 /* ---------- 1: glory -> pit -> title ---------- */
-SC([['a','h',1.6],['b','n','از هفت‌خان گذشت،'],['c','h',1.1],['d','n','دیوِ سپید را از پای درآورد،'],['e','h',1.1],['f','n','و بارها ایران را رهاند…'],['g','h',2.8],['h','q','…و همه‌ی این‌ها،|در یک چاه.',{c:1}],['i','T','چرا رستم|در چاه می‌میرد؟']],function(){
+SC([['a','h',1.12],['b','n','از هفت‌خان گذشت،'],['c','h',0.77],['d','n','دیوِ سپید را از پای درآورد،'],['e','h',0.77],['f','n','و بارها ایران را رهاند…'],['g','h',2.8],['h','q','…و همه‌ی این‌ها،|در یک چاه.',{c:1}],['i','T','چرا رستم|در چاه می‌میرد؟']],function(){
 var F=b('g')+.3,fu=sg(F,F+1.6),dk=sg(F+.8,F+2.4);
 sky(['#0b1633','#5a3a5e','#e9a85a']);sun(180,470-130*sg(0,2),30,1);hill(470,'#3b2b4a',22,1);hill(510,'#2f1f38',18,2);x.fillStyle='#24172c';x.fillRect(0,525,360,115);
 function suck(px,py){return[lerp(px,180,fu),lerp(py,600,fu),1-fu*.85]}
@@ -311,14 +311,14 @@ if(t>F-.2){var w=90*sg(F-.2,F+.4);el(180,600,w,w*.24,'#020104');gl(180,600,w*1.4
 x.fillStyle='rgba(2,3,10,'+(.92*dk)+')';x.fillRect(0,0,360,640);if(t>b('i'))gl(180,560,140,'216,167,60',.12)},228);
 
 /* ---------- intro: source card ---------- */
-SC([['a','h',8.5]],function(){sky(['#03060f','#0a1530','#1a2450']);stars(.6);var a1=sg(.3,1.3),a2=sg(2,3),a3=sg(3.8,4.8),a4=sg(5.6,6.6);
+SC([['a','h',6.4]],function(){sky(['#03060f','#0a1530','#1a2450']);stars(.6);var a1=sg(.3,1.3),a2=sg(2,3),a3=sg(3.8,4.8),a4=sg(5.6,6.6);
 x.save();x.globalAlpha=a1;tx('برگرفته از مقاله‌ی',180,170,15,'#cdbf9a',{w:600});x.shadowColor='rgba(216,167,60,.6)';x.shadowBlur=16;tx('«چرا رستم در چاه می‌میرد؟',180,222,30,'#ffd966',{f:FL,w:400});tx('بازخوانیِ معمای مرگِ جهان‌پهلوان در شاهنامه»',180,262,17,'#ffd966',{w:700,mw:320});x.shadowBlur=0;x.restore();
 x.save();x.globalAlpha=a2;orn(300,1,90);tx('نوشته‌ی',180,342,14,'#cdbf9a',{w:600});tx('پیمان پربها',180,380,26,'#fff1cf',{w:700});x.restore();
 x.save();x.globalAlpha=a3;orn(440,1,90);tx('ارائه‌شده در',180,480,14,'#cdbf9a',{w:600});tx('نخستین کنفرانس بین‌المللی زبان، ادبیات فارسی،',180,510,15,'#fff1cf',{w:700,mw:320});tx('تاریخ و مطالعات منطقه و جهان',180,534,15,'#fff1cf',{w:700});tx('آذر ۱۴۰۵',180,560,14,'#cdbf9a',{w:600});x.restore();
 },null);
 
 /* ---------- 2: two questions ---------- */
-SC([['a','q','چرا رستم باید بمیرد؟',{c:1}],['b','h',5.2],['c','q','اما چرا این‌گونه؟',{c:1}],['d','h',5.4],['e','h',4.2],['f','n','مرگِ قهرمان، فقط پایانِ زندگی‌اش نیست؛|واپسین تصویری است که روایت|از او به ما می‌سپارد']],function(){
+SC([['a','q','چرا رستم باید بمیرد؟',{c:1}],['b','h',3.7],['c','q','اما چرا این‌گونه؟',{c:1}],['d','h',3.9],['e','h',3.4],['f','n','مرگِ قهرمان، فقط پایانِ زندگی‌اش نیست؛|واپسین تصویری است که روایت|از او به ما می‌سپارد']],function(){
 sky(NIGHT);stars(.5);var B1=b('b'),D1=b('d'),l1=1-sg(b('c')-.2,b('c')+.4),l2=1-sg(b('e'),b('e')+.6);
 if(l1>0){x.save();x.globalAlpha=l1;x.globalAlpha*=sg(B1,B1+.6);tx('پاسخ‌های آشنا',180,250,24,'#9be0a8',{f:FL,w:400});x.restore();[['تقدیر','شکری (۱۳۹۵)، ریخت‌شناسیِ داستانِ شغاد'],['مکافاتِ کشتنِ اسفندیار','هشدارِ سیمرغ در شاهنامه؛ اسلامی ندوشن (۱۳۴۸)'],['پایانِ دورانِ پهلوانی','خاکسار (۲۰۱۸)، «در آینه‌ی زمان»']].forEach(function(s,i){lbox(180,318+i*76,290,s[0],s[1],l1*sg(B1+.9+i*1.3,B1+1.5+i*1.3),'rgba(80,190,120,.8)','v')})}
 if(t>D1-.1&&l2>0){x.save();x.globalAlpha=l2*sg(D1,D1+.6);tx('سه جزءِ این مرگ',180,250,24,'#ff9a7a',{f:FL,w:400});x.restore();[['خویشاوندِ نزدیک','شغاد، برادرِ ناتنی'],['فضای غیرجنگی','شکارگاه، پس از آشتی'],['چاهِ پنهان','پوشیده و پر از تیغ']].forEach(function(s,i){lbox(180,322+i*78,280,s[0],s[1],l2*sg(D1+.9+i*1.4,D1+1.5+i*1.4),'rgba(220,90,90,.85)','q')})}
@@ -330,14 +330,14 @@ frameImg(64,A('e',.8,2.6),'یا…؟','#ffd966',function(X,Y,W,H){x.fillStyle='#
 
 /* ---------- 3: Mardas ---------- */
 var MAR=o2(FIG.mardas,{glow:'47,179,163'}),ZY={rb:'#2a1530',tr:'#a01c2b',bd:'#120808',bs:'short',m:'sinister',eye:'#3a0808',hair:'#120808'},IBD={hg:'cap',rb:'#efe6d0',tr:'#a01c2b',m:'kind',eye:'#c0202a',hair:'#2a1a1a'};
-SC([['a','q','این صحنه را|پیش‌تر دیده‌ایم…',{c:1}],['b','h',1.6],
-['c','nv','آغازِ شاهنامه: مرداس،|فرمانروایی نیک‌دل و بخشنده','که مرداس نام گرانمایه بود / به داد و دهش برترین پایه بود',{src:'پادشاهی جمشید، داستانِ مرداس'}],['d','h',1.4],
-['e','nv','اما پسرش ضحاک،|*از* *مهر* *بی‌بهره* بود','جهانجوی را نام ضحّاک بود / دلیر و سبکسار و ناپاک بود',{src:'پادشاهی جمشید، داستانِ مرداس'}],['f','h',1.5],
-['g','nv','ابلیس با چهره‌ای نیک‌خواه آمد|و اعتمادِ ضحاک را به دست آورد…','چنان بد که ابلیس روزی پگاه / بیامد به سان یکی نیکخواه',{src:'پادشاهی جمشید، داستانِ مرداس'}],['h','h',1.2],
-['i','n','و همان اعتماد را|*ابزارِ* *پدرکشی* کرد'],['j','h',2.8],
-['k','nv','سرِ راهِ نیایشِ مرداس در باغ،|چاهی کندند و پوشاندند','پس ابلیس وارونه آن ژرف چاه / به خاشاک پوشید و بسپرد راه',{src:'پادشاهی جمشید، داستانِ مرداس'}],['l','h',4.4],
+SC([['a','q','این صحنه را|پیش‌تر دیده‌ایم…',{c:1}],['b','h',1.12],
+['c','nv','آغازِ شاهنامه: مرداس،|فرمانروایی نیک‌دل و بخشنده','که مرداس نام گرانمایه بود / به داد و دهش برترین پایه بود',{src:'پادشاهی جمشید، داستانِ مرداس'}],['d','h',0.98],
+['e','nv','اما پسرش ضحاک،|*از* *مهر* *بی‌بهره* بود','جهانجوی را نام ضحّاک بود / دلیر و سبکسار و ناپاک بود',{src:'پادشاهی جمشید، داستانِ مرداس'}],['f','h',1.05],
+['g','nv','ابلیس با چهره‌ای نیک‌خواه، اعتمادِ ضحاک را|*ابزارِ* *پدرکشی* کرد','چنان بد که ابلیس روزی پگاه / بیامد به سان یکی نیکخواه',{src:'پادشاهی جمشید، داستانِ مرداس'}],['h','h',0.84],
+['i','h',0,{gap:0}],['j','h',2.8],
+['k','n','سرِ راهِ نیایشِ مرداس،|چاهی کندند و پوشاندند'],['l','h',4.4],
 ['m','nv','مرداسِ ^بی‌خبر^، در چاه افتاد…','به چاه اندر افتاد و بشکست پست / شد آن نیک‌دل مرد یزدان‌پرست',{src:'پادشاهی جمشید، داستانِ مرداس'}],['n','h',2.8],
-['o','n','و ضحاک بر جایِ پدر نشست؛|همان که ماران از دوشش رُستند']],function(){
+['o','n','و ضحاک بر جایِ پدر نشست']],function(){
 var GA=sg(b('b'),b('b')+.8);
 if(GA<1){sky(['#02040c','#0a1530','#18264c']);var rw=1-GA;x.save();x.globalAlpha=rw;x.translate(180,470);x.rotate(-T*2.2);x.strokeStyle='#d8a73c';x.lineWidth=3;x.beginPath();x.arc(0,0,48,.3,2*PI-.3);x.stroke();x.fillStyle='#d8a73c';x.beginPath();x.moveTo(48*Math.cos(.3)-7,48*Math.sin(.3)-2);x.lineTo(48*Math.cos(.3)+7,48*Math.sin(.3)-2);x.lineTo(48*Math.cos(.3),48*Math.sin(.3)+10);x.fill();x.restore()}
 if(GA<=0)return;x.save();x.globalAlpha=GA;sky(['#f3dc94','#e8c068','#c9963a']);hill(470,'#5f9a5a',18,1);hill(500,'#4a8a4e',14,2);x.fillStyle='#3d7a44';x.fillRect(0,505,360,135);
@@ -358,24 +358,24 @@ if(wh){x.strokeStyle='rgba(160,20,40,.6)';x.lineWidth=1.5;for(var w2=0;w2<3;w2++
 
 /* ---------- 4: two pits ---------- */
 function mini(px,py,w,h,lab,fn){x.save();rr(px,py,w,h,8);x.fillStyle='#0b1633';x.fill();x.clip();fn();x.restore();rr(px,py,w,h,8);x.strokeStyle='#d8a73c';x.lineWidth=2;x.stroke();x.fillStyle='rgba(3,5,16,.75)';rr(px+w/2-38,py+6,76,22,8);x.fill();tx(lab,px+w/2,py+22,15,'#ffd966',{w:700})}
-var ROWS=[['خویشاوندِ خائن','ضحاک، پسرِ مرداس','شغاد، برادرِ رستم'],['همدست','ابلیس','شاهِ کابل'],['فضای امن','باغ، راهِ نیایش','شکارگاه، پس از آشتی'],['دام','چاهی پوشیده','چاه‌هایی پوشیده و پر از تیغ'],['قربانی','بی‌خبر از توطئه','بی‌خبر از دام']];
-SC([['a','h',1.4],['b','n','دو چاه، دو قربانی:|یکی در آغازِ شاهنامه،|دیگری در پایانِ کارِ رستم'],['r0','h',3.8],['r1','h',3.2],['r2','h',3.6],['r3','h',3.8],['r4','h',3.2],['c','q','تکرارِ یک بن‌مایه؟|یا کلیدِ معما؟',{c:1}],['d','h',1.2],['e','n','کلیدِ معما،|در شجره‌نامه‌ی خودِ رستم است…']],function(){
+var ROWS=[['خویشاوندِ خائن','ضحاک، پسرِ مرداس','شغاد، برادرِ رستم'],['همدست','ابلیس','شاهِ کابل'],['دامِ پنهان','در باغ، راهِ نیایش','در شکارگاه، پس از آشتی']];
+SC([['a','h',0.98],['b','n','دو چاه، دو قربانی:|یکی در آغازِ شاهنامه،|دیگری در پایانِ کارِ رستم'],['r0','h',2.9],['r1','h',2.7],['r2','h',2.9],['r3','h',0,{gap:0}],['r4','h',0,{gap:0}],['c','q','تکرارِ یک بن‌مایه؟|یا کلیدِ معما؟',{c:1}],['d','h',0.84],['e','n','کلیدِ معما،|در شجره‌نامه‌ی خودِ رستم است…']],function(){
 sky(NIGHT);stars(.4);var fade=1-.85*sg(b('c')-.2,b('c')+.5),pa=A('a',.9);
 x.save();x.globalAlpha=pa*fade;
 mini(188,228,152,128,'مرداس',function(){x.fillStyle='#e8c068';x.fillRect(188,228,152,128);x.fillStyle='#3d7a44';x.fillRect(188,328,152,30);pitTop(250,330,22,1,0);x.save();x.beginPath();x.rect(188,228,152,102);x.clip();P(250,348,.55,o2(MAR,{r:.5,m:'fear',glow:null}));x.restore();P(296,330,.52,o2(ZY,{m:'smug'}));P(322,330,.48,o2(IBD,{shadow:1}))});
 mini(20,228,152,128,'رستم',function(){x.fillStyle='#c98a4a';x.fillRect(20,228,152,128);x.fillStyle='#6a4a2a';x.fillRect(20,328,152,30);pitTop(82,330,22,1,0);x.save();x.beginPath();x.rect(20,228,152,102);x.clip();P(82,348,.55,o2(RO,{r:-.5,m:'pain'}));x.restore();P(128,330,.52,o2(FIG.shaghad,{}));P(154,330,.48,o2(FIG.kabul,{}))});
-ROWS.forEach(function(r,i){var k='r'+i,a=Math.min(sg(b(k),b(k)+.7),1-sg(be(k)-.1,be(k)+.5));if(a<=0)return;x.save();x.globalAlpha*=a;rr(20,392,320,150,14);x.fillStyle='rgba(11,22,51,.92)';x.fill();x.strokeStyle='rgba(216,167,60,.7)';x.lineWidth=1.5;x.stroke();
+ROWS.forEach(function(r,i){var k='r'+i;if(b(k)===be(k))return;var a=Math.min(sg(b(k),b(k)+.7),1-sg(be(k)-.1,be(k)+.5));if(a<=0)return;x.save();x.globalAlpha*=a;rr(20,392,320,150,14);x.fillStyle='rgba(11,22,51,.92)';x.fill();x.strokeStyle='rgba(216,167,60,.7)';x.lineWidth=1.5;x.stroke();
 tx(r[0],180,432,26,'#ffd966',{f:FL,w:400});tx(r[1],264,490,17,'#fff1cf',{w:700,mw:140});tx(r[2],96,490,17,'#fff1cf',{w:700,mw:140});tx('=',180,494,24,'#ffd966',{w:700});ln(180,455,180,470,'rgba(216,167,60,.5)',1);
-for(var d=0;d<5;d++)ci(160+d*10,524,d===i?3.2:2,d===i?'#ffd966':'rgba(216,167,60,.4)');x.restore()});x.restore();
+for(var d=0;d<ROWS.length;d++)ci(170+d*10,524,d===i?3.2:2,d===i?'#ffd966':'rgba(216,167,60,.4)');x.restore()});x.restore();
 var ka=A('d',1);if(ka>0){x.save();x.globalAlpha=ka;gl(180,450,110,'216,167,60',.45);x.translate(180,450);x.rotate(-.5+Math.sin(T)*.05);x.strokeStyle='#f2c94c';x.lineWidth=6;x.beginPath();x.arc(-30,0,16,0,7);x.stroke();ln(-14,0,40,0,'#f2c94c',6);ln(28,0,28,12,'#f2c94c',5);ln(38,0,38,10,'#f2c94c',5);x.restore()}},226);
 
 /* ---------- 5: lineage + scale (core) ---------- */
-SC([['a','h',2.0],['b','n','از سوی پدر:|سام، و پسرش زال'],['c','h',1.4],['d','n','زالِ طردشده را سیمرغ پرورد؛|سیمرغ، پیوندِ گسسته را ^ترمیم^ می‌کند'],
-['e','h',1.6],['f','n','از سوی مادر: رودابه،|دخترِ مهرابِ کابلی'],['g','h',1.8],
+SC([['a','h',1.4],['b','n','از سوی پدر: سام و زال؛|زالی که سیمرغ پرورد'],['c','h',0.84],['d','n','سیمرغ، پیوندِ گسسته را ^ترمیم^ می‌کند'],
+['e','h',1.12],['f','n','از سوی مادر: رودابه،|دخترِ مهرابِ کابلی'],['g','h',1.26],
 ['h','nv','و پنج پشت بالاتر: *ضحاک*|خودِ رستم این را با افتخار می‌گوید:','که ضحاک بودیش پنجم پدر / ز شاهان گیتی برآورده سر',{src:'سخنِ رستم به اسفندیار'}],
-['i','h',1.4],['j','n','و کنارِ ضحاک، ابلیس؛|که پیوندِ پدر و پسر را *بُرید*'],['k','q','رستم،|فرزندِ دو میراث',{c:1}],
+['i','h',0.98],['j','n','و کنارِ ضحاک، ابلیس؛|که پیوندِ پدر و پسر را *بُرید*'],['k','q','رستم،|فرزندِ دو میراث',{c:1}],
 ['l','h',3.0],['m','n','میراثِ ضحاکی،|یک کفه را سنگین می‌کند…'],['n','h',3.0],['o','n','و میراثِ پهلوانیِ زال و سیمرغ،|ترازو را به تعادل می‌رساند'],
-['p','h',1.0],['r','h',1.6],['s','n','اما در ریشه‌ی همان شاخه‌ی ضحاکی،|مرداسِ نیک ایستاده است…'],['t','n','پس شاخه‌ی مادری، دو الگو دارد:|^مرداسِ^ ^قربانی^ و *ضحاکِ* *خائن*']],function(){
+['p','h',0.7],['r','h',1.12],['s','h',0,{gap:0}],['t','n','در ریشه‌ی همان شاخه، ^مرداسِ^ ^نیک^ است؛|پس شاخه‌ی مادری دو الگو دارد:|^مرداسِ^ ^قربانی^ و *ضحاکِ* *خائن*']],function(){
 sky(NIGHT);stars(.45);
 var L0=b('l'),N0=b('n'),mA=sg(L0,L0+1.1);
 var ang=spr([[L0+1.6,-.36],[N0+.9,.2],[N0+2.3,.16]]);var G=sGeo(180,330,ang);
@@ -397,12 +397,12 @@ var ma=A('r',1,.2);if(ma>0){x.save();x.globalAlpha=ma;x.setLineDash([3,4]);ln(68
 if(t>b('t')){x.save();x.globalAlpha=A('t',.6,.3);gl(G.l[0]-21,G.l[1]-22,40,'220,40,50',.5);tx('الگوی خائن',G.l[0],G.l[1]+52,11,'#ff9a9a',{w:700});x.restore()}},function(){return t<b('l')?292:(t<b('r')?232:208)});
 
 /* ---------- 6: two expectations ---------- */
-SC([['a','n','پیش از تولدِ رستم،|دربارِ ایران دو انتظار داشت…'],['b','h',1.2],
-['c','nv','منوچهر می‌ترسید کودک|به سوی تبارِ مادری‌اش برود','اگر تاب گیرد سوی مادرش / ز گفت بد آگنده گردد سرش',{src:'سخنِ منوچهر، پادشاهی منوچهر'}],['d','h',1.2],
-['e','nv','اما ستاره‌شناسان|پهلوانی نیک‌نام را نوید دادند','ازین دخت مهراب و از پور سام / گوی پر منش زاید و نیک نام',{src:'پیشگوییِ ستاره‌شناسان، پادشاهی منوچهر'}],['f','h',1.8],
-['g','nv','سال‌ها بعد، در بزمی، مهرابِ سرمست|کنارِ رستمِ کودک گفت:','کنم زنده آیین ضحاک را / به پی مشک سارا کنم خاک را',{src:'سخنِ مهراب، پادشاهی منوچهر'}],['h','h',1.0],['i','n','…و زال و سام خندیدند!'],['j','h',1.6],
+SC([['a','n','پیش از تولدِ رستم،|دربارِ ایران دو انتظار داشت…'],['b','h',0.84],
+['c','nv','منوچهر می‌ترسید کودک|به سوی تبارِ مادری‌اش برود','اگر تاب گیرد سوی مادرش / ز گفت بد آگنده گردد سرش',{src:'سخنِ منوچهر، پادشاهی منوچهر'}],['d','h',0.84],
+['e','nv','اما ستاره‌شناسان|پهلوانی نیک‌نام را نوید دادند','ازین دخت مهراب و از پور سام / گوی پر منش زاید و نیک نام',{src:'پیشگوییِ ستاره‌شناسان، پادشاهی منوچهر'}],['f','h',0,{gap:0}],
+['g','h',0,{gap:0}],['h','h',0,{gap:0}],['i','h',0,{gap:0}],['j','h',1.12],
 ['k','q','کودکِ دو تبار،|سرانجام به کدام سو می‌رود؟']],function(){
-var feast=A('f',.9),qf=A('j',.9);
+var feast=0,qf=A('j',.9);
 if(feast<1){x.save();x.globalAlpha=1-feast;sky(NIGHT);var sL=A('b',1.1),sR=A('d',1.1),aL=1-sR,aR=t<b('d')?1-sL:sR,dxL=90*sL,dxR=-90*sR;
 if(aL>0){x.save();x.globalAlpha*=aL;x.translate(dxL,0);gl(90,470,170,'150,20,40',.45);arch(90,600,130,330);x.strokeStyle='rgba(216,167,60,.45)';x.lineWidth=2;x.stroke();rr(48,400,84,170,10);x.fillStyle='#7a1c2b';x.fill();x.strokeStyle='#d8a73c';x.lineWidth=2.5;x.stroke();star8(90,425,6,'#d8a73c');P(90,566,1.5,{hg:'crown',rb:'#2a6a4a',bd:'#4a3a30',bs:'long',m:t>b('b')?'worry':'calm',pose:t>b('b')?'hold':'down'});tx('منوچهر',90,610,14,'#f2e6c9',{w:700});x.restore()}
 if(aR>0){x.save();x.globalAlpha*=aR;x.translate(dxR,0);gl(270,430,170,'60,90,180',.35);for(var k=0;k<9;k++){var sx=205+rnd(k+20)*130,sy=290+rnd(k+30)*120,tw=.55+.45*Math.sin(T*3+k);star8(sx,sy,3+2*tw,'rgba(255,217,102,'+tw+')');gl(sx,sy,14,'255,217,102',.3*tw)}P(270,566,1.5,{hg:'turban',hc:'#2a3a7a',jw:'#d8a73c',rb:'#1b2a5e',stars:1,bd:'#8a8a8a',bs:'long',m:t>b('d')?'kind':'calm',pose:'astro',item:'astro'});tx('ستاره‌شناسان',270,610,14,'#f2e6c9',{w:700});x.restore()}
@@ -415,10 +415,10 @@ P(240,566-lau,1.4,o2(FIG.sam,{m:lg?'laugh':'calm',pose:lg?'laugh':'down'}));P(30
 if(qf>0){x.save();x.globalAlpha=qf;sky(NIGHT);var an=Math.sin(T*.9)*.16;scaleBody(180,400,an,610);var G=sGeo(180,400,an);node('zahhak',G.l[0],G.l[1]-22,19,1,{nm:0});md(G.r[0],G.r[1]-22,19,RING.pat,birdIn,null,1);panFront(G.l);panFront(G.r);tx('میراثِ ضحاکی',G.l[0],G.l[1]+32,12,'#ff9a9a',{w:700});tx('میراثِ پهلوانی',G.r[0],G.r[1]+32,12,'#9af0e0',{w:700});md(G.tip[0],G.tip[1],24,RING.rostam,figIn({tiger:1,hair:'#1a0d08',rb:'#1d3f8a',m:'calm'}),null,1,{glow:'255,214,130'});x.restore()}},function(){return t<b('f')?262:(t<b('j')?380:300)});
 
 /* ---------- 7: life between two legacies ---------- */
-SC([['a','h',2.0],['b','nv','پیشگویی محقق شد:|رستم، پناهِ ایران شد','کمر بسته‌ی شهریاران بود / به ایران پناه سواران بود',{src:'پیشگویی، پادشاهی منوچهر'}],['c','h',2.4],
-['d','nv','اما گاه، نیرویش راهِ دیگری رفت|در راهِ هفت‌خان، دشتبانی معترض شد:','چرا اسپ در خوید بگذاشتی / بر رنج نابرده برداشتی',{src:'سخنِ دشتبان، خانِ پنجم'}],['e','h',1.8],
-['f','nv','و رستم، بی هیچ گفت‌وگو،|هر دو گوشِ او را *کَند!*','بیفشارد و برکند هر دو ز بن / نگفت از بد و نیک با او سخن',{hl:2,src:'خانِ پنجم'}],['g','h',1.4],
-['h','n','سهراب:|پیروزی‌ای که به سوگِ فرزند بدل شد'],['i','h',1.4],['j','n','اسفندیار: پیروزی‌ای شوم،|که سیمرغ پیشاپیش از آن هشدار داده بود'],['k','h',2.6],
+SC([['a','h',1.4],['b','nv','پیشگویی محقق شد:|رستم، پناهِ ایران شد','کمر بسته‌ی شهریاران بود / به ایران پناه سواران بود',{src:'پیشگویی، پادشاهی منوچهر'}],['c','h',2.4],
+['d','n','اما گاه، نیرویش راهِ دیگری رفت:|در راهِ هفت‌خان، دشتبانی|به چرای رخش در کشتزار معترض شد'],['e','h',1.26],
+['f','nv','و رستم، بی هیچ گفت‌وگو،|هر دو گوشِ او را *کَند!*','بیفشارد و برکند هر دو ز بن / نگفت از بد و نیک با او سخن',{hl:2,src:'خانِ پنجم'}],['g','h',0.98],
+['h','n','سهراب:|پیروزی‌ای که به سوگ بدل شد'],['i','h',0.98],['j','n','اسفندیار:|پیروزی‌ای شوم'],['k','h',2.6],
 ['l','q','زندگیِ رستم:|کشاکشِ این دو میراث.'],['m','n','در این خوانش، چنین خشونتی|ردِّ *میراثِ* *ضحاکیِ* بیداد است']],function(){
 var X=function(a,z){return vis(a,z,.5)};var a0=X(-1,b('c')+.3),a1=X(b('c'),b('g')+.3),a2=X(b('g'),b('i')+.3),a3=X(b('i'),b('k')+.3),a4=X(b('k'),999);
 if(a0>0){x.save();x.globalAlpha=a0;sky(['#1b2d6a','#c98a4a','#f0c46a']);sun(260,430,26,1);hill(470,'#7a5a3a',20,1);x.fillStyle='#5a4028';x.fillRect(0,500,360,140);banner(70,560,230,1);horse(195,585,1.55,{walk:t<b('b'),rider:o2(RO,{m:'det',pose:'hold'})});x.restore()}
@@ -437,9 +437,9 @@ tx('میراثِ پهلوانی',G.r[0],G.r[1]+32,13,'#9af0e0',{w:700});tx('پن
 md(G.tip[0],G.tip[1],26,RING.rostam,figIn(o2(RO,{m:'worry'})),null,1,{glow:'255,214,130',ga:.3});x.restore()}},function(){return t<b('c')?318:t<b('i')?385:t<b('k')?268:240});
 
 /* ---------- 8: the trap ---------- */
-SC([['a','h',1.4],['b','n','در کابل، شغاد، برادرِ ناتنیِ رستم،|با شاهِ کابل همدست شد…'],['c','h',1.0],['d','n','کینِ باژ و ساو و رنجشی خویشاوندی،|نقشه‌ی مرگِ رستم شد'],
-['e','h',3.4],['f','h',1.8],['g','nv','در شکارگاه، چاه‌هایی پر از تیغ کندند|و سرشان را پوشاندند','به خاور سر چاه را کرده کور / که مردم ندیدی نه چشم ستور',{src:'داستانِ رستم و شغاد'}],
-['h','h',3.4],['i','n','پس از آشتیِ نمایشی، رستم به شکار آمد؛|به برادرش ^اعتماد^ داشت'],['j','h',2.0],['k','n','رخش از بوی خاکِ تازه رم کرد؛|اما رستم تازیانه زد و پیش راند'],
+SC([['a','h',0.98],['b','n','در کابل، شغاد، برادرِ ناتنیِ رستم،|با شاهِ کابل همدست شد…'],['c','h',0.7],['d','n','کینِ باژ و رنجش،|نقشه‌ی مرگِ رستم شد'],
+['e','h',3.4],['f','h',1.26],['g','nv','در شکارگاه، چاه‌هایی پر از تیغ کندند|و سرشان را پوشاندند','به خاور سر چاه را کرده کور / که مردم ندیدی نه چشم ستور',{src:'داستانِ رستم و شغاد'}],
+['h','h',2.7],['i','n','پس از آشتیِ نمایشی، رستم به شکار آمد؛|به برادرش ^اعتماد^ داشت'],['j','h',1.4],['k','n','رخش از بوی خاکِ تازه رم کرد؛|اما رستم تازیانه زد و پیش راند'],
 ['l','q','نشانه‌ی خطر بود؛|اما دیده نشد…'],['m','h',2.8]],function(){
 var A0=vis(-1,b('e')+.3),A1=vis(b('e'),b('h')+.3),A2=vis(b('h'),999);
 if(A0>0){x.save();x.globalAlpha=A0;palace('#140a14','#22101e','#2a1414');lamp(180,300,1);x.fillStyle='#4a2a1a';x.fillRect(120,540,120,10);if(t>b('c')){x.globalAlpha=A0*A('c',.6);for(var k=0;k<8;k++)el(160+(k%4)*12,536-Math.floor(k/4)*4,5,2.4,'#e0b23c');x.globalAlpha=A0}
@@ -450,16 +450,16 @@ x.fillStyle='#6a4a2a';x.fillRect(0,394,360,7);P(330,394,.75,o2(FIG.shaghad,{m:'s
 if(A2>0){x.save();x.globalAlpha=A2;sky(['#2a1a3a','#8a4a3a','#e09a54']);sun(300,450,22,1);hill(470,'#6a4a3a',18,2);x.fillStyle='#5a3e28';x.fillRect(0,500,360,140);
 var M0=b('m'),Hh=M0+1.1,fall=t>Hh?E((t-Hh)/1):0;pitTop(232,532,40,1,1-sg(Hh,Hh+.3),fall);
 P(318,566,1.3,o2(FIG.shaghad,{m:'smug',pose:'open',fl:-1}));
-var hx=lerp(-40,150,sg(b('h'),b('h')+3.2));hx=lerp(hx,232,sg(M0,Hh));var J=b('j'),rear=t>J&&t<b('l')?Math.min(1,(t-J)/.5)*.85*(t<J+1.4?1:.6):0;
-x.save();x.beginPath();x.rect(0,0,360,532);x.clip();horse(hx,566+fall*220,1.3,{walk:(t>b('h')&&t<b('h')+3.2)||(t>M0&&t<Hh),rear:rear,rider:o2(RO,{m:t>Hh?'pain':(t>J?'angry':'calm'),pose:t>J+.3&&t<b('l')?'whip':'hold',item:t>J+.3&&t<b('l')?'whip':null})});x.restore();
+var hx=lerp(-40,150,sg(b('h'),b('h')+2.5));hx=lerp(hx,232,sg(M0,Hh));var J=b('j'),rear=t>J&&t<b('l')?Math.min(1,(t-J)/.5)*.85*(t<J+1.4?1:.6):0;
+x.save();x.beginPath();x.rect(0,0,360,532);x.clip();horse(hx,566+fall*220,1.3,{walk:(t>b('h')&&t<b('h')+2.5)||(t>M0&&t<Hh),rear:rear,rider:o2(RO,{m:t>Hh?'pain':(t>J?'angry':'calm'),pose:t>J+.3&&t<b('l')?'whip':'hold',item:t>J+.3&&t<b('l')?'whip':null})});x.restore();
 if(t>Hh&&t<Hh+.5){x.fillStyle='rgba(255,240,210,'+(.7*(1-(t-Hh)/.5))+')';x.fillRect(0,0,360,640)}
 if(t>Hh){var du=cl((t-Hh)/1.4,0,1);for(var k3=0;k3<16;k3++)ci(232+Math.cos(k3*1.3)*60*du,530-Math.abs(Math.sin(k3*1.9))*50*du,3*(1-du)+1,'rgba(150,110,70,'+(.8*(1-du))+')')}
 x.fillStyle='rgba(2,2,8,'+sg(Hh+.8,Hh+1.8)+')';x.fillRect(0,0,360,640);x.restore()}},function(){return t<b('e')?390:t<b('h')?300:405});
 
 /* ---------- 9: in the pit — Rostam stays at the bottom ---------- */
-SC([['a','h',1.8],['b','n','جهان‌پهلوان، زخمی و خونین،|در بُنِ چاهی پر از تیغ…'],['c','h',1.0],['d','n','و شغاد، بر لبه‌ی چاه،|برادرِ خونینش را می‌نگریست'],
-['e','n','زخم، مرگبار بود؛|اما هنوز توانِ ^یک^ ^کارِ^ ^دیگر^ مانده بود…'],['f','h',1.0],['g','n','از ته چاه، از شغاد کمانی خواست؛|به بهانه‌ی درندگانِ دشت'],
-['h','h',2.4],['i','h',1.8],['j','n','شغاد خطر را دریافت|و پشتِ درختی کهن پناه گرفت'],['k','h',2.6],['l','n','تیرِ رستم،|درخت و خائن را با هم دوخت'],
+SC([['a','h',1.26],['b','n','جهان‌پهلوان، زخمی و خونین، در بُنِ چاه…|و شغاد، بر لبه، او را می‌نگریست'],['c','h',0,{gap:0}],['d','h',0,{gap:0}],
+['e','n','زخم، مرگبار بود؛|اما هنوز توانِ ^یک^ ^کارِ^ ^دیگر^ مانده بود…'],['f','h',0.7],['g','n','از ته چاه، از شغاد کمانی خواست؛|به بهانه‌ی درندگانِ دشت'],
+['h','h',2.4],['i','h',1.26],['j','n','شغاد خطر را دریافت|و پشتِ درختی کهن پناه گرفت'],['k','h',2.6],['l','n','تیرِ رستم،|درخت و خائن را با هم دوخت'],
 ['m','nv','و رستم، پیش از مرگ، گفت:','مرا زور دادی که از مرگ پیش / ازین بی‌وفا خواستم کین خویش',{src:'سخنِ رستم، داستانِ رستم و شغاد'}],['n','h',2.6],['o','n','و همان‌جا، در بُنِ چاه،|چشم از جهان فروبست…']],function(){
 var GY=340;sky(['#03050f','#0b1430','#1a2448']);stars(.8);moon(56,236,14,'#0b1430');earth(GY);shaft(70,260,GY,640,1);spikes(70,260,632,1,1);chenar(322,GY,.85);
 var Hh=b('h'),K0=b('k'),RX=165,RY=622,RS=1.85;
@@ -480,10 +480,10 @@ if(t>b('m')){x.save();x.globalAlpha=A('m',3)*.6;var g=x.createLinearGradient(RX,
 
 /* ---------- 10: two endings ---------- */
 function chain(px,items,a0,step,a){items.forEach(function(it,i){var al=sg(a0+i*step,a0+i*step+.5)*a;if(al<=0)return;x.save();x.globalAlpha=al;var y=262+i*64;if(i>0){ln(px,y-42,px,y-24,'rgba(216,167,60,.8)',1.5);dia(px,y-24,3,'#d8a73c')}rr(px-74,y-20,148,40,9);x.fillStyle=it[1]==='r'?'rgba(120,16,28,.92)':it[1]==='g'?'rgba(120,90,20,.95)':'rgba(11,22,51,.92)';x.fill();x.strokeStyle=it[1]==='r'?'#e05a5a':it[1]==='g'?'#ffd966':'rgba(216,167,60,.7)';x.lineWidth=it[1]?2:1;x.stroke();tx(it[0],px,y+6,15.5,it[1]==='g'?'#ffe9a8':'#f2e6c9',{w:700,mw:136});x.restore()})}
-SC([['a','q','دو چاه، دو پایان'],['b','h',3.6],['c','h',4.6],['d','n','مرداس مُرد و ضحاک کامیاب شد؛|رستم، پیش از مرگ،|خائن را از پای درآورد'],
-['e','h',1.8],['f','n','داستانی که با ^مرداس^ آغاز شد…'],['g','h',2.0],['h','n','…و خیانتی که خائن را|*بر* *تخت* نشاند،'],['i','h',3.0],
+SC([['a','q','دو چاه، دو پایان'],['b','h',0,{gap:0}],['c','h',0,{gap:0}],['d','h',0,{gap:0}],
+['e','h',1.26],['f','n','داستانی که با ^مرداس^ آغاز شد…'],['g','h',1.4],['h','n','…و خیانتی که خائن را|*بر* *تخت* نشاند،'],['i','h',3.0],
 ['j','n','در چاهِ رستم به پایان می‌رسد:|این‌بار، خائن *فرصتِ* *ماندن* نمی‌یابد'],['k','q','و حلقه‌ی روایت|^کامل^ می‌شود']],function(){
-sky(NIGHT);stars(.4);var ch=1-A('e',.8);
+sky(NIGHT);stars(.4);var ch=0;
 if(ch>0){x.save();x.globalAlpha=ch;x.save();x.globalAlpha*=A('b',.6);tx('مرداس',270,222,19,'#9af0e0',{f:FL,w:400});x.restore();x.save();x.globalAlpha*=A('c',.6);tx('رستم',90,222,19,'#ffd966',{f:FL,w:400});x.restore();
 chain(270,[['نیرنگ'],['سقوط در چاه'],['مرگِ قربانی'],['کامیابیِ خائن','r']],b('b')+.4,.75,1);chain(90,[['نیرنگ'],['سقوط در چاه'],['تیرِ واپسین','g'],['مرگِ خائن','g'],['مرگِ قربانی']],b('c')+.4,.8,1);x.restore()}
 var rA=A('e',.9,.6);if(rA<=0)return;var cx=180,cy=440,R=112;x.save();x.globalAlpha=rA;
@@ -499,7 +499,7 @@ var aa=sg(I0+1.5,I0+2);arrowIcon(cx-R,cy,19,aa);x.save();x.globalAlpha*=aa;plate
 x.save();x.globalAlpha*=sg(I0+2.6,I0+3.2);tx('دو چاه، یک روایت',cx,cy+6,15,'#fff1cf',{f:FL,w:400});x.restore();x.restore()},function(){return t<b('e')?205:290});
 
 /* ---------- 11: climax — Mardas-likeness ---------- */
-SC([['a','h',1.6],['b','n','رستم، در فرجام،|کجای این شجره ایستاد؟'],['c','h',4.4],['d','q','در جایگاهِ مرداس؛|نه ضحاک.'],['e','n','او *طراحِ* حذفِ خویشاوند نبود؛|^قربانیِ^ نیرنگِ خویشاوند بود'],['f','T','مرداس‌گونگی'],['g','n','و بیمِ منوچهر پاسخ گرفت:|فرزندِ دو تبار، سرانجام|کنارِ مرداس ایستاد…']],function(){
+SC([['a','h',1.12],['b','n','رستم، در فرجام،|کجای این شجره ایستاد؟'],['c','h',4.4],['d','q','در جایگاهِ مرداس؛|نه ضحاک.'],['e','n','او *طراحِ* حذفِ خویشاوند نبود؛|^قربانیِ^ نیرنگِ خویشاوند بود'],['f','T','مرداس‌گونگی'],['g','n','و بیمِ منوچهر پاسخ گرفت:|فرزندِ دو تبار، کنارِ مرداس ایستاد…']],function(){
 sky(NIGHT);stars(.45);var a=A('a',1.2),C=b('c'),Dd=b('d');
 var dim=1-.72*sg(C+3.4,C+4.2);var Al={mardas:a,zahhak:a,iblis:a,mehrab:a,rudabeh:a,sam:a,zal:a,sim:a,rostam:a};treeLines(Al);
 ['mehrab','rudabeh','sam','zal'].forEach(function(k){node(k,TN[k][0],TN[k][1],22,a*(1-.3*sg(C+3.4,C+4.2)))});node('sim',TN.sim[0],TN.sim[1],19,a);
@@ -513,7 +513,7 @@ node('rostam',rx,ry,26,a,{glow:'255,214,130',ga:.3+.3*mg});
 if(t>C+3.6){x.save();x.globalAlpha=sg(C+3.6,C+4.2);tx('هم‌جایگاه',140,212,12,'#9af0e0',{w:700});x.restore()}},200);
 
 /* ---------- 12: narrative purification ---------- */
-SC([['a','T','پالایشِ روایی'],['b','h',2.8],['c','n','چاه، جایِ پالایشِ قهرمان است:|در فرجام، سویه‌ی خیرِ او چیره می‌شود'],['d','h',1.0],['e','n','اما پالایش، *پاک‌کردنِ* *گذشته* نیست:|رنجِ دشتبان، مرگِ سهراب و خونِ اسفندیار|سرِ جایشان می‌مانند'],['f','n','این خوانش، رقیبِ تقدیر و مکافات نیست؛|آن‌ها از «*چرا* *مُرد*» می‌گویند،|این خوانش از «*چرا* *این‌گونه*»']],function(){
+SC([['a','T','پالایشِ روایی'],['b','h',2.8],['c','n','چاه، جایِ پالایشِ قهرمان است:|در فرجام، سویه‌ی خیرِ او چیره می‌شود'],['d','h',0.7],['e','n','اما پالایش، *پاک‌کردنِ* *گذشته* نیست:|رنجِ دشتبان، مرگِ سهراب و خونِ اسفندیار|سرِ جایشان می‌مانند'],['f','n','این خوانش، رقیبِ تقدیر و مکافات نیست؛|آن‌ها از «*چرا* *مُرد*» می‌گویند،|این خوانش از «*چرا* *این‌گونه*»']],function(){
 sky(['#04081a','#0b1736','#1a2450']);stars(.5);var pA=1-A('b',.7);
 if(pA>0){x.save();x.globalAlpha=pA;el(180,540,70,18,'#020104');x.strokeStyle='#6a4a2a';x.lineWidth=4;x.beginPath();x.ellipse(180,540,70,18,0,0,7);x.stroke();var g=x.createLinearGradient(0,540,0,180);g.addColorStop(0,'rgba(255,217,120,.55)');g.addColorStop(1,'rgba(255,217,120,0)');x.fillStyle=g;x.beginPath();x.moveTo(120,540);x.lineTo(240,540);x.lineTo(270,180);x.lineTo(90,180);x.fill();for(var k=0;k<24;k++){var u=((T*.25+rnd(k))%1);gl(130+rnd(k+3)*100,540-u*360,6,'255,217,102',.8*Math.sin(u*PI))}x.restore()}
 var sA=A('b',.8);if(sA>0){x.save();x.globalAlpha=sA;var an=spr([[b('b')+1,.26]]);scaleBody(180,340,an,605);var G=sGeo(180,340,an);var hl=t>b('d')?.5+.5*Math.sin(T*3):0;
@@ -522,13 +522,13 @@ tx('مرداس‌گونگی',G.r[0],G.r[1]+32,13,'#9af0e0',{w:700});tx('و تی�
 node('rostam',G.tip[0],G.tip[1],26,1,{nm:0,glow:'255,214,130',ga:.5});x.restore()}},240);
 
 /* ---------- 13: answer & epigraph ---------- */
-SC([['a','q','پس، چرا چاه؟'],['b','h',3.2],['c','n','نبردِ همسنگ،|فقط جنگاور را نشان می‌داد؛'],['c2','h',.9],['d','q','چاه، رستم را.',{c:1,sz:44}],['e','e','با نامِ ضحاک در تبار،|اما در جایگاهِ مرداس،|و در حالِ پاسخ به خیانت،|از جهانِ روایت بیرون می‌رود…'],['f','q','شاهنامه آخرش خوشه.',{c:1,sz:40}]],function(){
+SC([['a','q','پس، چرا چاه؟'],['b','h',2.1],['c','n','نبردِ همسنگ،|فقط جنگاور را نشان می‌داد؛'],['c2','h',0.7],['d','q','چاه، رستم را.',{c:1,sz:44}],['e','e','با نامِ ضحاک در تبار،|اما در جایگاهِ مرداس،|و در حالِ پاسخ به خیانت،|از جهانِ روایت بیرون می‌رود…'],['f','q','شاهنامه آخرش خوشه.',{c:1,sz:40}]],function(){
 var Ee=b('e');sky(['#03060f','#0a1530','#1a2450']);stars(.7);
 var ca=1-A('c2',.6);if(ca>0){for(var i=0;i<3;i++)card(180,300+i*86,sg(b('b')+.3+i*.7,b('b')+.9+i*.7)*ca,i<2&&t>b('c')?.3:1,i===2&&t>b('c')?A('c',.6):0,i,.85)}
 var ea=sg(Ee-.3,Ee+1);if(ea>0){x.save();x.globalAlpha=ea;gl(180,520,200,'255,214,130',.35);hill(540,'#1a1430',10,3);x.fillStyle='#120e22';x.fillRect(0,552,360,88);var wu=sg(b('e')+.6,be('e')+1.5);P(lerp(150,190,wu),580-wu*30,1.0-.55*wu,o2(RO,{m:'peace',walk:wu>0&&wu<1,al:1-.85*wu,glow:'255,214,130'}));x.restore()}},258);
 
 /* ---------- 14: credits ---------- */
-SC([['a','h',13]],function(){sky(['#03060f','#0a1530','#1a2450']);stars(.8);var a=sg(.3,2.2);x.save();x.globalAlpha=a;gl(180,280,230,'216,167,60',.22);x.shadowColor='rgba(216,167,60,.7)';x.shadowBlur=18;tx('چرا رستم',180,170,46,'#ffd966',{f:FL,w:400});tx('در چاه می‌میرد؟',180,226,46,'#ffd966',{f:FL,w:400});x.shadowBlur=0;orn(256,1,110);
+SC([['a','h',9]],function(){sky(['#03060f','#0a1530','#1a2450']);stars(.8);var a=sg(.3,2.2);x.save();x.globalAlpha=a;gl(180,280,230,'216,167,60',.22);x.shadowColor='rgba(216,167,60,.7)';x.shadowBlur=18;tx('چرا رستم',180,170,46,'#ffd966',{f:FL,w:400});tx('در چاه می‌میرد؟',180,226,46,'#ffd966',{f:FL,w:400});x.shadowBlur=0;orn(256,1,110);
 tx('بازخوانیِ معمای مرگِ جهان‌پهلوان در شاهنامه',180,292,15,'#f2e6c9',{w:600});
 x.globalAlpha=sg(1.5,3);tx('پیمان پربها',180,366,25,'#ffd966',{w:700});
 x.globalAlpha=sg(2.6,4.2);orn(418,1,70);tx('نخستین کنفرانس بین‌المللی زبان، ادبیات فارسی،',180,452,13,'#cdbf9a',{w:600});tx('تاریخ و مطالعات منطقه و جهان · آذر ۱۴۰۵',180,474,13,'#cdbf9a',{w:600});
@@ -685,7 +685,7 @@ function mvResume(){if(MVok&&!ended){var p=MV.play();if(p&&p.catch)p.catch(funct
 document.getElementById('mu').onclick=function(e){e.stopPropagation();var m=this.dataset.m!=='1';this.dataset.m=m?'1':'0';if(UG)UG.gain.value=m?0:1;if(MV)MV.muted=m;this.textContent=m?'🔇':'🔊'};
 function stOn(){return document.getElementById('st').style.display!=='none'}
 function togglePlay(){if(run)pause();else if(ended)seek(0);else resume()}
-function jump(d){var was=run;var tg=cl((run?curT():base)+d,0,TOT-.1);ended=false;seek(tg);if(!was){pause(true);T=tg}var el=document.getElementById(d>0?'skL':'skR');el.classList.add('on');clearTimeout(el._t);el._t=setTimeout(function(){el.classList.remove('on')},450)}
+function jump(d){var was=run||false;var tg=cl((run?curT():base)+d,0,TOT-.1);ended=false;seek(tg);if(!was){pause(true);T=tg}var el=document.getElementById(d>0?'skL':'skR');el.classList.add('on');clearTimeout(el._t);el._t=setTimeout(function(){el.classList.remove('on')},450)}
 var lastTap=0,lastSide=0,tapTimer=null;
 cv.addEventListener('pointerup',function(e){if(stOn())return;var w=innerWidth,side=e.clientX<w*.38?1:e.clientX>w*.62?-1:0,now2=performance.now();
 if(side!==0&&now2-lastTap<320&&side===lastSide){clearTimeout(tapTimer);tapTimer=null;jump(10*side);lastTap=now2;return}
@@ -695,9 +695,9 @@ document.getElementById('pz').onclick=function(){resume()};
 document.getElementById('rp').onclick=function(){wakeOn();seek(0)};
 (function(){var bar=document.getElementById('bar'),tt=document.getElementById('tt'),drag=false,was=false,fr=0;
 function fmt(v){v=Math.max(0,Math.round(v));return toFa(Math.floor(v/60))+':'+toFa(('0'+v%60).slice(-2))}
-function frac(e){var r=bar.getBoundingClientRect();return cl((r.right-14-e.clientX)/(r.width-28),0,1)}
-bar.addEventListener('pointerdown',function(e){if(stOn())return;e.preventDefault();e.stopPropagation();drag=true;was=run;if(run)pause(true);document.getElementById('pz').hidden=true;try{bar.setPointerCapture(e.pointerId)}catch(er){}bar.classList.add('on');fr=frac(e);T=fr*TOT;base=T});
-bar.addEventListener('pointermove',function(e){if(drag){fr=frac(e);T=fr*TOT;base=T}else{var f=frac(e),r=bar.getBoundingClientRect();tt.style.left=(r.width-14-f*(r.width-28))+'px';tt.textContent=fmt(f*TOT)}});
+function pos(e){var r=bar.getBoundingClientRect();fr=cl((r.right-14-e.clientX)/(r.width-28),0,1);return fr}
+bar.addEventListener('pointerdown',function(e){if(stOn())return;e.preventDefault();e.stopPropagation();drag=true;was=run;if(run)pause(true);document.getElementById('pz').hidden=true;try{bar.setPointerCapture(e.pointerId)}catch(er){}bar.classList.add('on');pos(e);T=fr*TOT;base=T});
+bar.addEventListener('pointermove',function(e){if(drag){pos(e);T=fr*TOT;base=T}else{var r=bar.getBoundingClientRect();var f=cl((r.right-14-e.clientX)/(r.width-28),0,1);tt.style.left=(r.width-14-f*(r.width-28))+'px';tt.textContent=fmt(f*TOT)}});
 function up(){if(!drag)return;drag=false;bar.classList.remove('on');ended=false;seek(fr*TOT);if(!was){pause(true);T=fr*TOT}}
 bar.addEventListener('pointerup',up);bar.addEventListener('pointercancel',up);
 window.__barTick=function(){var r=bar.getBoundingClientRect(),x0=r.width-14-(T/TOT)*(r.width-28);document.getElementById('kn').style.left=x0+'px';if(drag){tt.style.left=x0+'px';tt.textContent=fmt(T)+' / '+fmt(TOT)}}})();
